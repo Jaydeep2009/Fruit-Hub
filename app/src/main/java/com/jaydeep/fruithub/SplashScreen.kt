@@ -16,7 +16,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-@Preview (showSystemUi = true)
 fun SplashScreen(modifier: Modifier = Modifier) {
     Column(modifier = modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
