@@ -31,11 +31,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import androidx.room.util.copy
 
 @Composable
-@Preview(showSystemUi = true)
-fun WelcomeScreen(modifier: Modifier = Modifier) {
+fun WelcomeScreen(navController: NavController,modifier: Modifier = Modifier) {
     Column(modifier=modifier.fillMaxSize()
         .background(colorResource(R.color.white))
     ) {
@@ -96,7 +96,9 @@ fun WelcomeScreen(modifier: Modifier = Modifier) {
                 )
                 Spacer(modifier= modifier.height(16.dp))
                 
-                Button(onClick = {},
+                Button(onClick = {
+                    navController.navigate("home_screen")
+                },
                     modifier=modifier.fillMaxWidth()
                         .height(56.dp),
                         colors= ButtonDefaults.buttonColors(

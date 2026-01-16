@@ -11,6 +11,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.jaydeep.fruithub.ui.theme.FruitHubTheme
 
 class MainActivity : ComponentActivity() {
@@ -18,8 +21,20 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+            val navController = rememberNavController()
             FruitHubTheme {
-                SplashScreen()
+                NavHost(
+                    navController = navController,
+                    startDestination = "welcome"
+                ) {
+                    composable("welcome") {
+                        WelcomeScreen(navController=navController)
+                    }
+                    composable("home_screen") {
+                        HomeScreen(navController = navController)
+                    }
+                }
+
             }
         }
     }
